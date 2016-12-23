@@ -290,7 +290,7 @@ module.exports = function (grunt) {
 		'mocha', 'parallel', 'jshint']);
 
 	grunt.registerTask('test-fast', ['build', 'testconfig', 'fixture', 'connect',
-		'mocha','mocha', 'jshint']);
+		'mocha', 'jshint']);
 
 	grunt.registerTask('dev', ['build', 'testconfig', 'fixture', 'connect', 'watch']);
 };
