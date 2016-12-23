@@ -43,7 +43,12 @@ exports = module.exports = function (grunt, options) {
 				mocha: {
 					grep: grunt.option('grep')
 				},
-				view: '400x800' //tell phantomjs to use a mobile width
+				page: {
+					viewportSize: { //tell phantomjs to use a mobile width
+						width: 480,
+						height: 800
+					}
+				}
 			}
 		},
 		integration: {
@@ -66,7 +71,12 @@ exports = module.exports = function (grunt, options) {
 				mocha: {
 					grep: grunt.option('grep')
 				},
-				view: '400x800' //tell phantomjs to use a mobile width
+				page: {
+					viewportSize: { //tell phantomjs to use a mobile width
+						width: 480,
+						height: 800
+					}
+				}
 			}
 		}
 	};
