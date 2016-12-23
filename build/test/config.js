@@ -43,12 +43,10 @@ exports = module.exports = function (grunt, options) {
 				mocha: {
 					grep: grunt.option('grep')
 				},
-				phantomJSOptions: {
-					page: {
-						viewportSize: { //tell phantomjs to use a mobile width
-							width: 480,
-							height: 800
-						}
+				page: {
+					viewportSize: { //tell phantomjs to use a mobile width
+						width: 400,
+						height: 800
 					}
 				}
 			}
