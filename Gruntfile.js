@@ -246,10 +246,6 @@ module.exports = function (grunt) {
 		mocha: testConfig(grunt, {
 			reporter: grunt.option('reporter') || 'Spec'
 		}),
-		'mocha-mobile': testConfig(grunt, {
-			reporter: grunt.option('reporter') || 'Spec',
-			view: '400x800' //tell phantomjs to use a mobile width
-		}),
 		'test-webdriver': (function () {
 			var tests = testConfig(grunt);
 			var options = Object.assign({}, tests.unit.options);
@@ -291,10 +287,10 @@ module.exports = function (grunt) {
 		 'babel', 'concat:engine', 'uglify']);
 
 	grunt.registerTask('test', ['build', 'testconfig', 'fixture', 'connect',
-		'mocha', 'mocha-mobile', 'parallel', 'jshint']);
+		'mocha', 'parallel', 'jshint']);
 
 	grunt.registerTask('test-fast', ['build', 'testconfig', 'fixture', 'connect',
-		'mocha', 'mocha-mobile', 'jshint']);
+		'mocha','mocha', 'jshint']);
 
 	grunt.registerTask('dev', ['build', 'testconfig', 'fixture', 'connect', 'watch']);
 };

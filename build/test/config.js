@@ -29,6 +29,23 @@ exports = module.exports = function (grunt, options) {
 				}
 			}
 		},
+		unitmobile: {
+			options: {
+				log: true,
+				urls: [
+					'http://' + host + ':<%= connect.test.options.port %>/test/core/',
+					'http://' + host + ':<%= connect.test.options.port %>/test/checks/',
+					'http://' + host + ':<%= connect.test.options.port %>/test/rule-matches/',
+					'http://' + host + ':<%= connect.test.options.port %>/test/commons/',
+					'http://' + host + ':<%= connect.test.options.port %>/test/integration/rules/'
+				],
+				run: true,
+				mocha: {
+					grep: grunt.option('grep')
+				},
+				view: '400x800' //tell phantomjs to use a mobile width
+			}
+		},
 		integration: {
 			options: {
 				log: true,
@@ -38,6 +55,18 @@ exports = module.exports = function (grunt, options) {
 				mocha: {
 					grep: grunt.option('grep')
 				}
+			}
+		},
+		integrationmobile: {
+			options: {
+				log: true,
+				urls: mapToUrl(['test/integration/full/**/*.html', '!test/integration/full/**/frames/**/*.html'],
+					'<%= connect.test.options.port %>'),
+				run: true,
+				mocha: {
+					grep: grunt.option('grep')
+				},
+				view: '400x800' //tell phantomjs to use a mobile width
 			}
 		}
 	};
