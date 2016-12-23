@@ -29,7 +29,7 @@ exports = module.exports = function (grunt, options) {
 				}
 			}
 		},
-		unitmobile: {
+		'unit-mobile': {
 			options: {
 				log: true,
 				urls: [
@@ -43,10 +43,12 @@ exports = module.exports = function (grunt, options) {
 				mocha: {
 					grep: grunt.option('grep')
 				},
-				page: {
-					viewportSize: { //tell phantomjs to use a mobile width
-						width: 480,
-						height: 800
+				phantomJSOptions: {
+					page: {
+						viewportSize: { //tell phantomjs to use a mobile width
+							width: 480,
+							height: 800
+						}
 					}
 				}
 			}
@@ -59,23 +61,6 @@ exports = module.exports = function (grunt, options) {
 				run: true,
 				mocha: {
 					grep: grunt.option('grep')
-				}
-			}
-		},
-		integrationmobile: {
-			options: {
-				log: true,
-				urls: mapToUrl(['test/integration/full/**/*.html', '!test/integration/full/**/frames/**/*.html'],
-					'<%= connect.test.options.port %>'),
-				run: true,
-				mocha: {
-					grep: grunt.option('grep')
-				},
-				page: {
-					viewportSize: { //tell phantomjs to use a mobile width
-						width: 480,
-						height: 800
-					}
 				}
 			}
 		}
